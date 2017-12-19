@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CarCard from "./components/CarCard";
 import Navbar from "./components/Navbar";
-import cars from "./Car.json";
+import cars from "./components/Car.json";
 import "./App.css";
 
 class App extends Component {
@@ -53,23 +53,24 @@ class App extends Component {
     render() {
         return ( 
             <div>
-              <Navbar name={
-                  "Some Awesome Cars"
-              }
-              score = { this.state.score }
-            </div> 
-            <div>
-           className = "wrapper" > {
-                this.state.cars.map(Car => ( 
-                    CarCard imageClick={this.imageClick}
-                    id={car.id}
-                    key={car.id}
-                    image={car.image}
-                  
-                ))}
-            } <
-            <
-            /div>
+                <div>
+                <Navbar name={
+                    "Some Awesome Cars"
+                }
+                score = { this.state.score }
+                />
+                </div> 
+                <div className = "wrapper"> {
+                    this.state.cars.map(Car => ( 
+                        <CarCard imageClick={this.imageClick}
+                        id={Car.id}
+                        key={Car.id}
+                        image={Car.image} />
+                    
+                    ))}
+                }
+                </div>
+            </div>
         );
     }
 }
